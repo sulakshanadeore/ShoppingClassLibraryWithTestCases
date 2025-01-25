@@ -1,20 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShoppingClassLibrary
+﻿namespace ClassLibraryForUnitTest
 {
+    public class Employee
+    {
 
-	[Serializable]
-	public class InvalidFlavourException : Exception
-	{
-		public InvalidFlavourException() { }
-		public InvalidFlavourException(string message) : base(message) { }
-		public InvalidFlavourException(string message, Exception inner) : base(message, inner) { }
-		protected InvalidFlavourException(
-		  System.Runtime.Serialization.SerializationInfo info,
-		  System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
-	}
+        public bool CheckForValidEmpID(int empid)
+        { 
+        if (empid > 0) {return true;}
+        return false;
+        
+        }
+
+        public string ValidateUser(string username, string password)
+        {
+            string msg = null;
+            if (username != null || password != null)
+            {
+                if (username == "Ana" && password == "Ana@12345")
+                {
+                    msg = "Welcome " + username;
+                }
+            }
+            else {
+                msg = "Check your credentials.";
+            
+            }
+            return msg;
+        
+        }
+    }
 }
